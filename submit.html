@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Your Story | Young Writers Zambia</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Young Writers Zambia</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="stories.html">Stories</a>
+            <a href="submit.html" class="active">Submit</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <!-- Theme Toggle -->
+        <div class="toggle-container">
+            <span>🌞</span>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider round"></span>
+            </label>
+            <span>🌙</span>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero submit-hero">
+        <h1>Submit Your Story</h1>
+        <p>Share your creativity and get featured on Young Writers Zambia.</p>
+    </section>
+
+    <!-- Submission Form -->
+    <section class="submit-form-section">
+        <div class="submit-box">
+            <h2>Story Submission Form</h2>
+            <p>Fill in your details and upload your story. Our team will review and feature selected works.</p>
+            
+            <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required placeholder="example@email.com">
+
+                <label for="title">Story Title:</label>
+                <input type="text" id="title" name="title" required placeholder="Your story title">
+
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="urban">Urban Fantasy</option>
+                    <option value="scifi">Science Fiction</option>
+                    <option value="poetry">Poetry</option>
+                    <option value="horror">Horror</option>
+                </select>
+
+                <label for="story">Upload Your Story (PDF or DOCX):</label>
+                <input type="file" id="story" name="story" accept=".pdf,.doc,.docx" required>
+
+                <label for="message">Additional Notes (optional):</label>
+                <textarea id="message" name="message" rows="5" placeholder="Any comments or details about your story..."></textarea>
+
+                <button type="submit" class="cta-button">Submit Story ✍️</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Young Writers Zambia — All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+  </html>
