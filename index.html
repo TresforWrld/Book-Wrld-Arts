@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Wrld & Arts — Home</title>
+  <meta name="description" content="Book Wrld & Arts — A colorful community for artists and writers. Upload, showcase, collaborate, and sell." />
+  <meta name="theme-color" content="#fff" id="meta-theme-color">
+
+  <!-- Fonts (system fallback used for easy GitHub hosting) -->
+  <style>
+    /* ---------------------------------------------
+       Simple reset & helpers
+       --------------------------------------------- */
+    :root{
+      --bg: #fff;
+      --card: #fff;
+      --text: #111;
+      --muted: #666;
+      --accent-1: #FF6B6B; /* coral */
+      --accent-2: #FFD93D; /* yellow */
+      --accent-3: #6BCB77; /* green */
+      --accent-4: #4D96FF; /* blue */
+      --glass: rgba(255,255,255,0.6);
+      --radius: 12px;
+      --shadow: 0 8px 24px rgba(16,24,40,0.08);
+      --blur: 6px;
+      --container: 1100px;
+    }
+    .dark {
+      --bg: #0b0f1a;
+      --card: rgba(255,255,255,0.04);
+      --text: #e6eef8;
+      --muted: #a7b3c6;
+      --glass: rgba(255,255,255,0.04);
+      --shadow: 0 12px 30px rgba(2,6,23,0.6);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(77,150,255,0.06), transparent 8%),
+                  radial-gradient(1000px 500px at 90% 80%, rgba(255,107,107,0.04), transparent 7%),
+                  var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      padding-bottom: 60px;
+    }
+
+    /* Utility container */
+    .wrap{max-width:var(--container);margin:0 auto;padding:28px;}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:60;backdrop-filter: blur(var(--blur));
+      background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.3));
+      border-radius: 0 0 16px 16px;
+      box-shadow: var(--shadow);
+      margin: 16px auto;max-width: calc(var(--container) + 56px);padding:12px 24px;
+    }
+    .dark header{
+      background: linear-gradient(90deg, rgba(12,14,24,0.6), rgba(12,14,24,0.3));
+    }
+    .nav{
+      display:flex;align-items:center;gap:20px;justify-content:space-between;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo {
+      width:48px;height:48px;border-radius:10px;
+      background: conic-gradient(from 200deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .brand h1{margin:0;font-size:18px;letter-spacing:0.4px}
+    nav a{color:var(--text);text-decoration:none;font-weight:600;opacity:0.95}
+    .nav-right{display:flex;gap:12px;align-items:center}
+    .btn {
+      background:linear-gradient(90deg,var(--accent-4),var(--accent-1));
+      color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer;
+      box-shadow: 0 8px 20px rgba(77,150,255,0.12);
+    }
+    .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(0,0,0,0.06)}
+    .icon-btn{background:var(--card);border-radius:10px;padding:8px;display:inline-flex;align-items:center;justify-content:center;border:0;cursor:pointer}
+    .icon-btn svg{width:18px;height:18px;fill:currentColor}
+
+    /* HERO */
+    .hero{
+      margin-top:28px;background:
+        linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+      border-radius:18px;padding:36px;display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;
+      overflow:hidden;position:relative;
+    }
+    .dark .hero{
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .hero h2{font-size:36px;margin:0 0 8px}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-art{
+      min-height:260px;border-radius:12px;padding:18px;background:
+        linear-gradient(120deg, rgba(255,107,107,0.06), rgba(77,203,119,0.06), rgba(77,150,255,0.04));
+      display:flex;align-items:center;justify-content:center;flex-direction:column;
+    }
+
+    /* floating paint strokes / decorative SVGs */
+    .splash {
+      position:absolute;right:-60px;top:-40px;opacity:0.12;transform:rotate(8deg);filter: blur(8px);
+    }
+
+    /* Grid zones for featured content */
+    .grid {
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;
+    }
+    .card{
+      background:var(--card);border-radius:14px;padding:14px;box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    .card h3{margin:0 0 8px;font-size:16px}
+    .thumb{
+      height:140px;border-radius:10px;background:linear-gradient(135deg,#f6d365,#fda085);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:24px;
+      margin-bottom:10px;overflow:hidden;
+    }
+    .meta{font-size:13px;color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent-3));color:#111;font-weight:700;font-size:12px}
+
+    /* artists / writers sections */
+    .list{display:flex;gap:12px;flex-wrap:wrap}
+    .person{background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2));padding:12px;border-radius:12px;display:flex;gap:12px;align-items:center;min-width:240px}
+    .person .avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(90deg,var(--accent-1),var(--accent-4));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+    .dark .person{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+
+    /* promo banner */
+    .promo{margin:24px 0;padding:18px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:18px;background:linear-gradient(90deg,#FFD93D,#FF6B6B);color:#111}
+    .dark .promo{background:linear-gradient(90deg,#2b2f49,#23243a);color:var(--text)}
+
+    /* community & academy */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+    .footer{
+      margin-top:36px;padding:28px;border-radius:12px;background:linear-gradient(180deg, rgba(0,0,0,0.03), transparent);
+      display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+    }
+
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr; padding:22px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .wrap{padding:18px}
+    }
+    @media (max-width:700px){
+      .grid{grid-template-columns:1fr}
+      .nav a{display:none}
+      header{padding:12px}
+      .brand h1{font-size:16px}
+      .person{min-width:100%}
+      .two-col{grid-template-columns:1fr}
+    }
+
+    /* little animation */
+    .floating{
+      animation: floaty 6s ease-in-out infinite;
+    }
+    @keyframes floaty{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+      100%{transform:translateY(0)}
+    }
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    a.link{color:var(--accent-4);font-weight:700;text-decoration:none}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header aria-label="Main navigation">
+    <div class="wrap nav">
+      <div class="brand" style="gap:10px">
+        <div class="logo" aria-hidden="true">W&A</div>
+        <div>
+          <h1>Book Wrld & Arts</h1>
+          <div class="muted" style="font-size:12px;margin-top:6px">Where imagination finds a home</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <nav style="display:flex;gap:14px;margin-right:14px" aria-label="Primary">
+          <a href="#" title="Explore">Explore</a>
+          <a href="#" title="Artists">Artists</a>
+          <a href="#" title="Writers">Writers</a>
+          <a href="#" title="Marketplace">Marketplace</a>
+          <a href="#" title="Community">Community</a>
+        </nav>
+
+        <div class="nav-right">
+          <button class="icon-btn" id="searchBtn" title="Search" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21 21l-4.35-4.35"></path><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5" fill="none"></circle></svg>
+          </button>
+
+          <button class="icon-btn" id="toggleTheme" title="Toggle theme" aria-label="Toggle theme">
+            <svg id="themeIcon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3v2"></path></svg>
+          </button>
+
+          <button class="btn" id="loginBtn">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="mainContent">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div>
+        <h2 id="hero-heading">Welcome to Book Wrld & Arts</h2>
+        <p class="muted">A global, colorful community for artists and writers — publish, showcase, sell and collaborate.</p>
+
+        <div class="cta-row" role="group" aria-label="Primary actions">
+          <button class="btn" onclick="location.href='#artists'">Upload Art</button>
+          <button class="btn" onclick="location.href='#writers'">Publish Story</button>
+          <button class="btn" style="background:linear-gradient(90deg,var(--accent-3),var(--accent-2))" onclick="location.href='#community'">Join the Community</button>
+        </div>
+
+        <div style="margin-top:24px" class="muted">Tip: Toggle theme in the header — light and dark both look great with our art-forward palette.</div>
+
+        <!-- featured grid -->
+        <div class="grid" style="margin-top:22px">
+          <article class="card" aria-label="Featured Artwork">
+            <div class="thumb" style="background:linear-gradient(135deg,#ffd89b,#19547b)">
+              ART — FEATURED
+            </div>
+            <h3>Featured Artwork</h3>
+            <div class="meta">By <strong>Rina Arata</strong> • <span class="muted">Anime / Digital</span></div>
+          </article>
+
+          <article class="card" aria-label="Trending Story">
+            <div class="thumb" style="background:linear-gradient(135deg,#c9ffbf,#ffafbd);color:#222">
+              STORY
+            </div>
+            <h3>Trending Story: <span style="font-weight:800">"Alpha Migration"</span></h3>
+            <div class="meta">By <strong>Tresfor Wrld</strong> • <span class="muted">Sci-fi • 12 min read</span></div>
+          </article>
+
+          <article class="card" aria-label="Poem of the Day">
+            <div class="thumb" style="background:linear-gradient(135deg,#89f7fe,#66a6ff)">
+              POEM
+            </div>
+            <h3>Poem of the Day</h3>
+            <div class="meta">By <strong>Leah Muse</strong> • <span class="muted">Free Verse</span></div>
+          </article>
+        </div>
+
+      </div>
+
+      <aside class="hero-art" aria-label="Hero artwork area">
+        <div style="text-align:center">
+          <div style="font-size:13px;font-weight:800;color:var(--muted);margin-bottom:8px">Spotlight</div>
+          <div style="font-size:18px;font-weight:800">Artist of the Month</div>
+          <div style="height:12px"></div>
+          <div style="width:160px;height:160px;border-radius:20px;background:conic-gradient(from 120deg,#FF6B6B,#FFD93D,#6BCB77,#4D96FF);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:900">RA</div>
+          <div style="margin-top:12px;font-weight:700">Rina Arata</div>
+          <div class="muted" style="font-size:13px">Digital painter • Anime & Portraits</div>
+
+          <div style="height:18px"></div>
+          <button class="btn" style="width:100%">View Portfolio</button>
+        </div>
+      </aside>
+
+      <!-- decorative splash -->
+      <svg class="splash floating" width="260" height="260" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#FF6B6B"/><stop offset="1" stop-color="#4D96FF"/>
+          </linearGradient>
+        </defs>
+        <path d="M44 8c26-12 66-6 90 8s46 44 36 86-38 68-80 80S-6 140 6 96 18 28 44 8z" fill="url(#g1)" opacity="0.15"/>
+      </svg>
+    </section>
+
+    <!-- PROMO -->
+    <section class="promo" aria-label="Marketplace promo">
+      <div>
+        <div style="font-weight:800;font-size:18px">Visit Marketplace</div>
+        <div class="muted" style="margin-top:6px">Buy original art, support creators, get commissions and e-books.</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn" href="#marketplace">Visit Store</a>
+        <a class="btn" style="background:linear-gradient(90deg,var(--accent-4),var(--accent-3))" href="#sell">Become a Seller</a>
+      </div>
+    </section>
+
+    <!-- Artists & Writers -->
+    <section id="artists" style="margin-top:22px">
+      <h2 style="margin:0 0 8px">Artists Showcase</h2>
+      <p class="muted" style="margin:0 0 14px">Explore trending artists, styles, and commission options.</p>
+
+      <div class="list" aria-live="polite">
+        <div class="person card">
+          <div class="avatar">RA</div>
+          <div>
+            <div style="font-weight:800">Rina Arata <span class="pill" style="margin-left:8px">Anime</span></div>
+            <div class="muted" style="font-size:13px">Digital portraits, commissions open</div>
+          </div>
+        </div>
+
+        <div class="person card">
+          <div class="avatar">JM</div>
+          <div>
+            <div style="font-weight:800">Jae Morris <span class="pill" style="margin-left:8px">Surreal</span></div>
+            <div class="muted" style="font-size:13px">Mixed media & prints</div>
+          </div>
+        </div>
+
+        <div class="person card">
+          <div class="avatar">TC</div>
+          <div>
+            <div style="font-weight:800">T. Chuma <span class="pill" style="margin-left:8px">Digital</span></div>
+            <div class="muted" style="font-size:13px">Comics & sprites</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="writers" style="margin-top:22px">
+      <h2 style="margin:0 0 8px">Writers Haven</h2>
+      <p class="muted" style="margin:0 0 14px">Featured stories, serialized novels, flash fiction and poetry.</p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="thumb" style="background:linear-gradient(135deg,#c2e9fb,#a1c4fd);color:#112">Serial: Overdrive</div>
+          <h3>Overdrive — Chapter 5</h3>
+          <div class="meta">By <strong>Tresfor Wrld</strong> • Sci-fi</div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" style="background:linear-gradient(135deg,#f6d365,#fda085)">Flash Fiction</div>
+          <h3>Last Train Home</h3>
+          <div class="meta">By <strong>Leah Muse</strong> • 6 min read</div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" style="background:linear-gradient(135deg,#84fab0,#8fd3f4)">Poetry Collection</div>
+          <h3>Whispers of the City</h3>
+          <div class="meta">By <strong>Artem B.</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Community & Academy -->
+    <section style="margin-top:28px" id="community">
+      <div class="two-col">
+        <div class="card">
+          <h3 style="margin-top:0">Community</h3>
+          <p class="muted">Join groups, monthly challenges, and collaborative projects. Post prompts, join collabs, and follow topics.</p>
+          <ul class="muted" style="padding-left:18px;margin-top:8px">
+            <li>Monthly challenge: "Mystery Stranger" (draw & write)</li>
+            <li>New: Weekly critique rooms</li>
+            <li>Open calls for collabs</li>
+          </ul>
+          <div style="height:8px"></div>
+          <a class="link" href="#community">Explore community →</a>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Academy</h3>
+          <p class="muted">Free & paid lessons: manga panels, story structure, color theory, and creator business tips.</p>
+          <div style="height:8px"></div>
+          <a class="link" href="#academy">Start learning →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+      <div>
+        <div style="font-weight:900">Book Wrld & Arts</div>
+        <div class="muted" style="font-size:13px">BROUGHT TO YOU BY TRESFOR WRLD</div>
+      </div>
+
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <div class="muted" style="font-size:13px">Follow</div>
+        <a class="link" href="#" aria-label="TikTok">TikTok</a>
+        <a class="link" href="#" aria-label="Instagram">Instagram</a>
+        <a class="link" href="#" aria-label="WhatsApp">WhatsApp</a>
+        <a class="link" href="#" aria-label="YouTube">YouTube</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Minimal JS to handle theme & small interactions -->
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const toggle = document.getElementById('toggleTheme');
+      const themeIcon = document.getElementById('themeIcon');
+      const metaTheme = document.getElementById('meta-theme-color');
+
+      // Set initial theme from localStorage or system preference.
+      const saved = localStorage.getItem('bw_theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let dark = saved ? saved === 'dark' : prefersDark;
+
+      function applyTheme(darkMode){
+        if(darkMode){
+          html.classList.add('dark');
+          themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+          metaTheme.setAttribute('content', '#0b0f1a');
+        } else {
+          html.classList.remove('dark');
+          themeIcon.innerHTML = '<path d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36 6.36l-1.41-1.41M7.05 6.05 5.64 4.64m12.02 0-1.41 1.41M7.05 17.95l-1.41 1.41"></path>';
+          metaTheme.setAttribute('content', '#ffffff');
+        }
+      }
+
+      applyTheme(dark);
+
+      toggle.addEventListener('click', function(){
+        dark = !dark;
+        localStorage.setItem('bw_theme', dark ? 'dark' : 'light');
+        applyTheme(dark);
+      });
+
+      // Small enhancement: search button open a prompt
+      document.getElementById('searchBtn').addEventListener('click', function(){
+        const q = prompt('Search Book Wrld & Arts — enter keywords (example: "anime", "sci-fi")');
+        if(q) alert('This demo does not have search enabled. Use "' + q + '" when integrating your backend.');
+      });
+
+      // Accessibility: focus outline for keyboard users
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Tab') document.body.classList.add('kbd');
+      });
+
+      // Optional: sample lazy load for images if you add real images later
+      if('loading' in HTMLImageElement.prototype){
+        // native lazy loading supported
+      }
+    })();
+  </script>
+
+</body>
+</html>
